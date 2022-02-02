@@ -1,31 +1,21 @@
-import React, {useState, useEffect} from 'react';
-import Item from '../Item/Item'
-import "./ItemList.css"
+import React from "react";
+import Item from "../Item/Item";
+import "./ItemList.css";
 
-const ItemList = () => {
-
-    const [users, setUsers] = useState([]);
-
-    useEffect(() => {
-        fetch('https://fakestoreapi.com/products/')
-          .then((response) => response.json())
-          .then((json) => setUsers(json));
-      }, []);
-
-  return <div className='container'>
-            <div className='ItemList row'>
-            {users.map((user) => {
-                    return (
-                        <div key={user.id}  >
-                            <Item 
-                            data={user}
-                            key={user.id} 
-                            />
-                        </div>
-                    );
-            })}
+const ItemList = ({ products }) => {
+  return (
+    <div className="container">
+      <div className="ItemList row">
+        {products.map((product) => {
+          return (
+            <div key={product.id}>
+              <Item data={product} key={product.id} />
             </div>
-</div>;
+          );
+        })}
+      </div>
+    </div>
+  );
 };
 
 export default ItemList;
