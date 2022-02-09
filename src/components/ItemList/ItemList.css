@@ -1,5 +1,4 @@
-.ItemList{
-    display: flex;
-    width: 300px;
-    
+.Cards {
+  display: flex;
+  justify-content: center;
 }

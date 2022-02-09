@@ -1,20 +1,32 @@
 import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //COMPONENTS
 import NavBar from "./components/NavBar/Navbar";
-//import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+
+//VIEWS
+import Home from "./components/Pages/Home";
+import Electronics from "./components/Pages/Electronics";
+import Mens from "./components/Pages/Mens";
 
 const App = () => {
   return (
     <>
-      <NavBar />
-      <ItemDetailContainer
-      title="Detalle"/>
-
-      
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/electronics" element={<Electronics />} />
+          <Route path="/Mens" element={<Mens />} />
+          <Route
+            path="/item/:id"
+            element={<ItemDetailContainer title="Detalle" />}
+          />
+        </Routes>
+      </Router>
     </>
   );
 };
 
 export default App;
-//<ItemListContainer greeting="Tienda" />
+
