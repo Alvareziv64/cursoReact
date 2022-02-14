@@ -1,41 +1,43 @@
-import React from 'react';
+import React from "react";
+import "./ItemCount.css"
 
-const ItemCount = ({initial, stock, handlerCounterUp, handlerCounterDown}) => {
+const ItemCount = ({
+  handlerCounterDown,
+  handlerCounterUp,
+  stock,
+  counter,
+}) => {
+  /*const [counter, setCounter] = useState(1);
 
-  return  <div className="container">
-              <h4>Cantidad (stock: {stock})</h4>
-              <p>{initial}</p>
-              <button onClick={handlerCounterUp} className="btn btn-info btn-sm">+</button>
-              <button onClick={handlerCounterDown} className="btn btn-danger btn-sm">-</button>
-          </div>;
-          
-};
-
-export default ItemCount;
-
-
-
-  /*  
-  const [counter , setCounter] = useState(1);
-  
   const stock = 5;
 
   const handlerCounterUp = () => {
-    if (counter < stock){
+    if (counter < stock) {
       setCounter(counter + 1);
     }
-  }
+  };
 
   const handlerCounterDown = () => {
-    if (counter > 1){
+    if (counter > 1) {
       setCounter(counter - 1);
     }
-  }
+  };
+*/
+  return (
+    <div>
+      <div className="divCantidad">
+        <p>(stock: {stock})</p>
+        {counter > 0 ? <h5 className="cantidad">Cantidad: {counter}</h5> : null}
+      </div>
 
-  <ItemCount
-                stock={stock}
-                initial={counter}
-                handlerCounterDown={handlerCounterDown}
-                handlerCounterUp={handlerCounterUp}
-                />
-  */
+      <button onClick={handlerCounterUp} className="btn btn-info btn-sm">
+        +
+      </button>
+      <button onClick={handlerCounterDown} className="btn btn-danger btn-sm">
+        -
+      </button>
+    </div>
+  );
+};
+
+export default ItemCount;

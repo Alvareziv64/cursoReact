@@ -22,6 +22,7 @@ const App = () => {
             path="/item/:id"
             element={<ItemDetailContainer title="Detalle" />}
           />
+          <Route path="/cart"/>
         </Routes>
       </Router>
     </>

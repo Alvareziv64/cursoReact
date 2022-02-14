@@ -5,19 +5,21 @@ import './ItemListContainer.css'
 
 const ItemListContainer = ({ greeting }) => {
   const [products, setProducts] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // fetch("https://fakestoreapi.com/products/")
-    //   .then((response) => response.json())
     axios("https://fakestoreapi.com/products/").then((json) =>
       setProducts(json.data)
     );
+    setTimeout(() => {
+      setLoading(false);
+    }, 1300);
   }, []);
 
   return (
     <div className="container">
       <h1>{greeting}</h1>
-      <ItemList products={products} />
+      {loading ? <p>Cargando...</p> : <ItemList products={products} />}
     </div>
   );
 };

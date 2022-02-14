@@ -9,16 +9,16 @@ const ItemDetailContainer = ({ title }) => {
   const [loading, setLoading] = useState(true);
 
   let id = useParams();
-  let userId = id.id;
+  let productId = id.id;
 
   useEffect(() => {
-    axios(`https://fakestoreapi.com/products/${userId}`).then((json) =>
+    axios(`https://fakestoreapi.com/products/${productId}`).then((json) =>
       setProduct(json.data)
     );
     setTimeout(() => {
       setLoading(false);
-    }, 1000);
-  }, []);
+    }, 1300);
+  }, [productId]);
 
   return (
     <div className="container detail">
