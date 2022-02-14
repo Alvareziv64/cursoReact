@@ -6,6 +6,7 @@ const ItemCount = ({
   handlerCounterUp,
   stock,
   counter,
+  addToCart
 }) => {
   /*const [counter, setCounter] = useState(1);
 
@@ -36,6 +37,10 @@ const ItemCount = ({
       <button onClick={handlerCounterDown} className="btn btn-danger btn-sm">
         -
       </button>
+      {counter > 0 ? <button onClick={addToCart} className="btn btn-success btn-sm">
+        Agregar al carrito
+      </button> : null}
+      
     </div>
   );
 };
