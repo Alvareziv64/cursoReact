@@ -1,11 +1,18 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
+import { CartContext } from "../../CartContext";
 
 const ItemList = ({ detail }) => {
   const [counter, setCounter] = useState(0);
   const [onAdd, setOnAdd] = useState(false);
+
+  const [cart, setCart] = useContext(CartContext);
+  const newState = [
+    {'id' : detail.id, 'name' : detail.title, 'quantity' : counter}
+  ];
+  console.log(cart);
 
   const stock = 5;
 
@@ -14,6 +21,11 @@ const ItemList = ({ detail }) => {
       setOnAdd(true);
     }
   };
+
+  const auxFuncion = () => {
+    setCart(newState);
+    addToCart();
+  }
 
   const handlerCounterUp = () => {
     if (counter < stock) {
@@ -54,8 +66,12 @@ const ItemList = ({ detail }) => {
               handlerCounterUp={handlerCounterUp}
               counter={counter}
               stock={stock}
-              addToCart={addToCart}
             />
+            {counter > 0 ? (
+              <button onClick={ () => auxFuncion() } className="btn btn-success btn-sm">
+                Agregar al carrito
+              </button>
+            ) : null}
             <p>Carrito vacio</p>
           </div>
         )}

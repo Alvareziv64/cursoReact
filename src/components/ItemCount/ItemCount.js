@@ -1,12 +1,12 @@
 import React from "react";
-import "./ItemCount.css"
+import "./ItemCount.css";
 
 const ItemCount = ({
   handlerCounterDown,
   handlerCounterUp,
   stock,
   counter,
-  addToCart
+  addToCart,
 }) => {
   /*const [counter, setCounter] = useState(1);
 
@@ -30,17 +30,15 @@ const ItemCount = ({
         <p>(stock: {stock})</p>
         {counter > 0 ? <h5 className="cantidad">Cantidad: {counter}</h5> : null}
       </div>
-
-      <button onClick={handlerCounterUp} className="btn btn-info btn-sm">
-        +
-      </button>
-      <button onClick={handlerCounterDown} className="btn btn-danger btn-sm">
-        -
-      </button>
-      {counter > 0 ? <button onClick={addToCart} className="btn btn-success btn-sm">
-        Agregar al carrito
-      </button> : null}
-      
+      <h5>Agregar producto:</h5>
+      <div>
+        <button onClick={handlerCounterUp} className="btn btn-info btn-sm">
+          +
+        </button>
+        <button onClick={handlerCounterDown} className="btn btn-danger btn-sm">
+          -
+        </button>
+      </div>
     </div>
   );
 };
