@@ -6,7 +6,7 @@ const ItemCount = ({
   handlerCounterUp,
   stock,
   counter,
-  addToCart,
+  auxFuncion,
 }) => {
   /*const [counter, setCounter] = useState(1);
 
@@ -39,6 +39,11 @@ const ItemCount = ({
           -
         </button>
       </div>
+      {counter > 0 ? (
+        <button onClick={auxFuncion} className="btn btn-success btn-sm">
+          Agregar al carrito
+        </button>
+      ) : null}
     </div>
   );
 };

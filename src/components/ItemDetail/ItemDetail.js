@@ -8,11 +8,10 @@ const ItemList = ({ detail }) => {
   const [counter, setCounter] = useState(0);
   const [onAdd, setOnAdd] = useState(false);
 
-  const [cart, setCart] = useContext(CartContext);
+  const { addItem } = useContext(CartContext);
   const newState = [
     {'id' : detail.id, 'name' : detail.title, 'quantity' : counter}
   ];
-  console.log(cart);
 
   const stock = 5;
 
@@ -23,7 +22,7 @@ const ItemList = ({ detail }) => {
   };
 
   const auxFuncion = () => {
-    setCart(newState);
+    addItem(newState);
     addToCart();
   }
 
@@ -50,12 +49,12 @@ const ItemList = ({ detail }) => {
       </div>
       <div className="card-body divInfo">
         <h4 className="card-title">{detail.title}</h4>
-        <p class="card-text">{detail.description}</p>
+        <p className="card-text">{detail.description}</p>
         <h5>{"$" + detail.price}</h5>
         {onAdd === true ? (
           <div>
             <h5>Se agregaron {counter} articulos al carrito</h5>
-            <Link to="/cart" class="btn btn-primary comprar">
+            <Link to="/cart" className="btn btn-primary comprar">
               Ver carrito
             </Link>
           </div>
@@ -66,13 +65,8 @@ const ItemList = ({ detail }) => {
               handlerCounterUp={handlerCounterUp}
               counter={counter}
               stock={stock}
+              auxFuncion={auxFuncion}
             />
-            {counter > 0 ? (
-              <button onClick={ () => auxFuncion() } className="btn btn-success btn-sm">
-                Agregar al carrito
-              </button>
-            ) : null}
-            <p>Carrito vacio</p>
           </div>
         )}
       </div>
@@ -81,5 +75,3 @@ const ItemList = ({ detail }) => {
 };
 
 export default ItemList;
-
-<p class="card-text"></p>;
