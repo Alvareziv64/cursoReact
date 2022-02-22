@@ -2,8 +2,9 @@ import React, { useContext } from "react";
 import { CartContext } from "../../CartContext";
 
 const CartContainer = () => {
-  const { cart } = useContext(CartContext);
-  console.log(cart);
+
+  const { cart, nCantidad, nPrecio } = useContext(CartContext);
+
   return (
     <div className="container">
       <table className="table">
@@ -19,26 +20,35 @@ const CartContainer = () => {
         <tbody id="items">
           {cart.map((item) => {
             return (
-                <tr key={item.id}>
-                  <th scope="row">{item.id}</th>
-                  <td>{item.name}</td>
-                  <td>{item.quantity}</td>
-                  <td>
-                    <button class="btn btn-info btn-sm">+</button>
-                    <button class="btn btn-danger btn-sm">-</button>
-                  </td>
-                  <td>
-                    <span>{"$" + item.price}</span>
-                  </td>
-                </tr>
+              <tr key={item.id}>
+                <th scope="row">{item.id}</th>
+                <td>{item.name}</td>
+                <td>{item.quantity}</td>
+                <td>
+                  <button className="btn btn-info btn-sm">+</button>
+                  <button className="btn btn-danger btn-sm">-</button>
+                </td>
+                <td>
+                  <span>{"$" + item.price * item.quantity}</span>
+                </td>
+              </tr>
             );
           })}
         </tbody>
         <tfoot>
           <tr id="footer">
-            <th scope="row" colspan="S">
-              Carrito vacío
+            <th scope="row" colSpan="2">
+              Total productos
             </th>
+            <td>{nCantidad}</td>
+            <td>
+              <button className="btn btn-danger btn-sm" id="vaciarCarrito">
+                Vaciar carrito
+              </button>
+            </td>
+            <td className="font-weight-bold">
+               <span>{"$" + nPrecio}</span>
+            </td>
           </tr>
         </tfoot>
       </table>
