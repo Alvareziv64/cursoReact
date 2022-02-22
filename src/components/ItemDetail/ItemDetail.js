@@ -9,9 +9,7 @@ const ItemList = ({ detail }) => {
   const [onAdd, setOnAdd] = useState(false);
 
   const { addItem } = useContext(CartContext);
-  const newState = [
-    {'id' : detail.id, 'name' : detail.title, 'quantity' : counter}
-  ];
+  const newState = {'id' : detail.id, 'name' : detail.title, 'quantity' : counter, "price" : detail.price};
 
   const stock = 5;
 

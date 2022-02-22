@@ -6,17 +6,17 @@ export const ItemProvider = ({ children }) => {
   const [cart, setCart] = useState([]);
 
   const addItem = (newState) => {
-    const foundItem = cart.find((item) => item.id === newState);
+    const foundItem = cart.find((item) => item.id === newState.id);
 
     if (foundItem) {
-      foundItem.quantity += foundItem.quantity;
+      foundItem.quantity += newState.quantity;
     } else {
-      cart.push({});
+      cart.push(newState);
     }
 
     setCart([...cart]);
   };
-
+  
 console.log(cart);
   return (
     <CartContext.Provider value={{ cart, setCart, addItem }}>

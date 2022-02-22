@@ -32,9 +32,9 @@ const NavBar = () => {
             <Link to="/mens" className="nav-item nav-link active">
               Men's
             </Link>
-            <li className="nav-item dropdown">
+            <Link to="/cart" className="nav-item dropdown">
               <CartWidget />
-            </li>
+            </Link>
           </ul>
         </div>
       </div>

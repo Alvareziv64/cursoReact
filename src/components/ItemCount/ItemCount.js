@@ -8,22 +8,7 @@ const ItemCount = ({
   counter,
   auxFuncion,
 }) => {
-  /*const [counter, setCounter] = useState(1);
 
-  const stock = 5;
-
-  const handlerCounterUp = () => {
-    if (counter < stock) {
-      setCounter(counter + 1);
-    }
-  };
-
-  const handlerCounterDown = () => {
-    if (counter > 1) {
-      setCounter(counter - 1);
-    }
-  };
-*/
   return (
     <div>
       <div className="divCantidad">
