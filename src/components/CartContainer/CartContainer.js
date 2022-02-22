@@ -1,9 +1,21 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../CartContext";
+import { Link } from "react-router-dom";
 
 const CartContainer = () => {
+  const { cart, setCart } = useContext(CartContext);
 
-  const { cart, nCantidad, nPrecio } = useContext(CartContext);
+  //Reduce de cantidad de items
+  const nCantidad = cart.reduce((acc, { quantity }) => acc + quantity, 0);
+  //Reduce para sumar precio total
+  const nPrecio = cart.reduce(
+    (acc, { quantity, price }) => acc + quantity * price,
+    0
+  );
+  //Eliminar productos del carrito
+  const borrar = () => {
+    setCart([]);
+  };
 
   return (
     <div className="container">
@@ -36,20 +48,33 @@ const CartContainer = () => {
           })}
         </tbody>
         <tfoot>
-          <tr id="footer">
-            <th scope="row" colSpan="2">
-              Total productos
-            </th>
-            <td>{nCantidad}</td>
-            <td>
-              <button className="btn btn-danger btn-sm" id="vaciarCarrito">
-                Vaciar carrito
-              </button>
-            </td>
-            <td className="font-weight-bold">
-               <span>{"$" + nPrecio}</span>
-            </td>
-          </tr>
+          {nCantidad > 0 ? (
+            <tr id="footer">
+              <th scope="row" colSpan="2">
+                Total productos
+              </th>
+              <td>{nCantidad}</td>
+              <td>
+                <button
+                  onClick={borrar}
+                  className="btn btn-danger btn-sm"
+                  id="vaciarCarrito"
+                >
+                  Vaciar carrito
+                </button>
+              </td>
+              <td className="font-weight-bold">
+                <span>{"$" + nPrecio}</span>
+              </td>
+            </tr>
+          ) : (
+            <tr id="footer">
+              <th scope="row" colSpan="2">
+                Carrito Vacio
+              </th>
+              <td><Link to="/"><button className="btn btn-info btn-sm">Ir a tienda</button></Link></td>
+            </tr>
+          )}
         </tfoot>
       </table>
     </div>
