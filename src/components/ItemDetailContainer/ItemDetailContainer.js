@@ -12,12 +12,10 @@ const ItemDetailContainer = ({ title }) => {
   let productId = id.id;
 
   useEffect(() => {
-    axios(`https://fakestoreapi.com/products/${productId}`).then((json) =>
+    axios(`https://fakestoreapi.com/products/${productId}`).then((json) => {
       setProduct(json.data)
-    );
-    setTimeout(() => {
       setLoading(false);
-    }, 1300);
+   } );
   }, [productId]);
 
   return (
