@@ -1,6 +1,7 @@
 import React from "react";
 import "./ItemCount.css";
 
+
 const ItemCount = ({
   handlerCounterDown,
   handlerCounterUp,
@@ -8,7 +9,6 @@ const ItemCount = ({
   counter,
   auxFuncion,
 }) => {
-
   return (
     <div>
       <div className="divCantidad">
@@ -25,9 +25,9 @@ const ItemCount = ({
         </button>
       </div>
       {counter > 0 ? (
-        <button onClick={auxFuncion} className="btn btn-success btn-sm">
-          Agregar al carrito
-        </button>
+          <button onClick={auxFuncion} className="btn btn-success btn-sm">
+            Agregar al carrito
+          </button>
       ) : null}
     </div>
   );

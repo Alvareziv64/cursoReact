@@ -9,7 +9,12 @@ const ItemList = ({ detail }) => {
   const [onAdd, setOnAdd] = useState(false);
 
   const { addItem } = useContext(CartContext);
-  const newState = {'id' : detail.id, 'name' : detail.title, 'quantity' : counter, "price" : detail.price};
+  const newState = {
+    id: detail.id,
+    name: detail.title,
+    quantity: counter,
+    price: detail.price,
+  };
 
   const stock = 5;
 
@@ -22,7 +27,7 @@ const ItemList = ({ detail }) => {
   const auxFuncion = () => {
     addItem(newState);
     addToCart();
-  }
+  };
 
   const handlerCounterUp = () => {
     if (counter < stock) {
@@ -52,7 +57,10 @@ const ItemList = ({ detail }) => {
         {onAdd === true ? (
           <div>
             <h5>Se agregaron {counter} articulos al carrito</h5>
-            <Link to="/cart" className="btn btn-primary comprar">
+            <Link to="/" className="btn btn-primary comprar">
+              Volver a tienda
+            </Link>
+            <Link to="/cart" className="btn btn-outline-primary comprar">
               Ver carrito
             </Link>
           </div>

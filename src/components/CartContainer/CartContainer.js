@@ -1,19 +1,18 @@
 import React, { useContext } from "react";
 import { CartContext } from "../../CartContext";
 import { Link } from "react-router-dom";
+import "./CartContainer.css"
 
 const CartContainer = () => {
-  const { cart, setCart } = useContext(CartContext);
+  const { cart, setCart, nCantidad, sumar, restar, borrar } = useContext(CartContext);
 
-  //Reduce de cantidad de items
-  const nCantidad = cart.reduce((acc, { quantity }) => acc + quantity, 0);
   //Reduce para sumar precio total
   const nPrecio = cart.reduce(
     (acc, { quantity, price }) => acc + quantity * price,
     0
   );
   //Eliminar productos del carrito
-  const borrar = () => {
+  const borrarTodo = () => {
     setCart([]);
   };
 
@@ -29,7 +28,7 @@ const CartContainer = () => {
             <th scope="col">Total</th>
           </tr>
         </thead>
-        <tbody id="items">
+        <tbody>
           {cart.map((item) => {
             return (
               <tr key={item.id}>
@@ -37,8 +36,9 @@ const CartContainer = () => {
                 <td>{item.name}</td>
                 <td>{item.quantity}</td>
                 <td>
-                  <button className="btn btn-info btn-sm">+</button>
-                  <button className="btn btn-danger btn-sm">-</button>
+                  <button onClick={() => sumar(item.id)} className="btn btn-info btn-sm">+</button>
+                  <button onClick={() => restar(item.id)} className="btn btn-danger btn-sm">-</button>
+                  <button onClick={() => borrar(item.id)} className="btn btn-outline-danger btn-sm">Borrar</button>
                 </td>
                 <td>
                   <span>{"$" + item.price * item.quantity}</span>
@@ -49,18 +49,22 @@ const CartContainer = () => {
         </tbody>
         <tfoot>
           {nCantidad > 0 ? (
-            <tr id="footer">
+            <tr>
               <th scope="row" colSpan="2">
                 Total productos
               </th>
               <td>{nCantidad}</td>
               <td>
                 <button
-                  onClick={borrar}
-                  className="btn btn-danger btn-sm"
-                  id="vaciarCarrito"
-                >
+                  onClick={borrarTodo}
+                  className="btn btn-outline-danger btn-sm"
+                > 
                   Vaciar carrito
+                </button>
+                <button
+                  className="btn btn-success btn-sm"
+                > 
+                  Finalizar compra
                 </button>
               </td>
               <td className="font-weight-bold">
@@ -68,11 +72,11 @@ const CartContainer = () => {
               </td>
             </tr>
           ) : (
-            <tr id="footer">
+            <tr>
               <th scope="row" colSpan="2">
                 Carrito Vacio
               </th>
-              <td><Link to="/"><button className="btn btn-info btn-sm">Ir a tienda</button></Link></td>
+              <td><Link to="/"><button className="btn btn-info goShop">Ir a tienda</button></Link></td>
             </tr>
           )}
         </tfoot>

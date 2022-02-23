@@ -1,10 +1,15 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import "./CartWidget.css"
+import { CartContext } from "../../CartContext";
 
 const CartWidget = () => {
-  return <div>
+  const { nCantidad } = useContext(CartContext);
+  return <div className='cartC'>
       <img src="https://assets.webiconspng.com/uploads/2017/09/Shopping-Cart-PNG-Image-72455.png"
-       alt="logo"  width="30px"
+       alt="logo"  width="25px"
       />
+      {nCantidad > 0 ? <div className='cartNum'>{nCantidad}</div> : null}
+      
   </div>
   ;
 };
