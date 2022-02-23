@@ -11,7 +11,8 @@ const ItemList = ({ detail }) => {
   const { addItem } = useContext(CartContext);
   const newState = {
     id: detail.id,
-    name: detail.title,
+    name: detail.name,
+    title: detail.title,
     quantity: counter,
     price: detail.price,
   };
@@ -45,14 +46,14 @@ const ItemList = ({ detail }) => {
     <div className="div">
       <div className="card">
         <img
-          src={detail.image}
+          src={detail.img}
           className="card-img-top image"
           alt="Producto"
         ></img>
       </div>
       <div className="card-body divInfo">
-        <h4 className="card-title">{detail.title}</h4>
-        <p className="card-text">{detail.description}</p>
+        <h4 className="card-title">{detail.name}</h4>
+        <p className="card-text">{detail.title}</p>
         <h5>{"$" + detail.price}</h5>
         {onAdd === true ? (
           <div>

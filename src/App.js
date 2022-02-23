@@ -11,6 +11,7 @@ import Mens from "./components/Pages/Mens";
 import CartContainer from "./components/CartContainer/CartContainer";
 
 const App = () => {
+
   return (
     <>
       <Router>
@@ -24,7 +25,7 @@ const App = () => {
               path="/item/:id"
               element={<ItemDetailContainer title="Detalle" />}
             />
-            <Route path="/cart" element={<CartContainer title="Carrito"/>} />
+            <Route path="/cart" element={<CartContainer title="Carrito" />} />
           </Routes>
         </ItemProvider>
       </Router>

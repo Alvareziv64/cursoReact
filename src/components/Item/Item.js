@@ -4,9 +4,10 @@ import './Item.css';
 const Item = ({ data }) => {
   return (
     <div className="card">
-      <img src={data.image} className="card-img-top img" alt="Producto"></img>
+      <img src={data.img} className="card-img-top img" alt="Producto"></img>
       <div className="card-body">
-        <h5 className="card-title">{data.title}</h5>
+        <h5 className="card-title">{data.name}</h5>
+        <p className="card-text">{data.title}</p>
       </div>
     </div>
   );
