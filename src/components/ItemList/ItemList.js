@@ -3,14 +3,14 @@ import Item from "../Item/Item";
 import "./ItemList.css";
 import { Link } from "react-router-dom";
 
-const ItemList = ({ products }) => {
+const ItemList = ({ comicsData }) => {
   return (
     <div>
-      {products.map((product) => {
+      {comicsData.map((data) => {
         return (
-          <div key={product.id} className="Cards">
-            <Link to={`/item/${product.id}`}>
-              <Item data={product} key={product.id} />
+          <div key={data.id} className="Cards">
+            <Link to={`/item/${data.id}`}>
+              <Item data={data} key={data.id} />
             </Link>
           </div>
         );

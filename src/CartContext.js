@@ -48,7 +48,7 @@ export const ItemProvider = ({ children }) => {
   //Reduce para cantidad de items
   const nCantidad = cart.reduce((acc, { quantity }) => acc + quantity, 0);
 
-  console.log(cart);
+  
   return (
     <CartContext.Provider value={{ cart, setCart, addItem, nCantidad, sumar, restar, borrar}}>
       {children}

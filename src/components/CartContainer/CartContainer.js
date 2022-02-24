@@ -33,7 +33,7 @@ const CartContainer = () => {
             return (
               <tr key={item.id}>
                 <th scope="row">{item.id}</th>
-                <td>{item.name}</td>
+                <td>{item.name + ", " + item.title}</td>
                 <td>{item.quantity}</td>
                 <td>
                   <button onClick={() => sumar(item.id)} className="btn btn-info btn-sm">+</button>

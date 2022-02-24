@@ -23,10 +23,11 @@ const ItemListContainer = ({ greeting }) => {
     getComics();
   }, []);
 
+
   return (
     <div className="container">
       <h1>{greeting}</h1>
-      {loading ? <p>Cargando...</p> : <ItemList products={comicsData} />}
+      {loading ? <p>Cargando...</p> : <ItemList comicsData={comicsData} />}
     </div>
   );
 };

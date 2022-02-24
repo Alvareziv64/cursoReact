@@ -1,7 +1,7 @@
 import React from 'react';
 
-function Electronics() {
+function Spiderman() {
   return <div></div>;
 }
 
-export default Electronics;
+export default Spiderman;

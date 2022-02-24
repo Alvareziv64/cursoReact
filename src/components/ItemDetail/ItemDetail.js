@@ -59,7 +59,7 @@ const ItemList = ({ detail }) => {
           <div>
             <h5>Se agregaron {counter} articulos al carrito</h5>
             <Link to="/" className="btn btn-primary comprar">
-              Volver a tienda
+              Seguir comprando
             </Link>
             <Link to="/cart" className="btn btn-outline-primary comprar">
               Ver carrito

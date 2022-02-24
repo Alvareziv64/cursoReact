@@ -6,9 +6,11 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { ItemProvider } from "./CartContext";
 //VIEWS
 import Home from "./components/Pages/Home";
-import Electronics from "./components/Pages/Electronics";
-import Mens from "./components/Pages/Mens";
+import Spiderman from "./components/Pages/Spiderman";
+import Avengers from "./components/Pages/Avengers";
+import Imprescindibles from "./components/Pages/Imprescindibles";
 import CartContainer from "./components/CartContainer/CartContainer";
+import Filter from "./components/Pages/Filter";
 
 const App = () => {
 
@@ -19,8 +21,10 @@ const App = () => {
           <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/electronics" element={<Electronics />} />
-            <Route path="/Mens" element={<Mens />} />
+            <Route path="/spiderman" element={<Spiderman />} />
+            <Route path="/avengers" element={<Avengers />} />
+            <Route path="/imprescindibles" element={<Imprescindibles />} />
+            <Route path="/filter/:filter" element={<Filter />} />
             <Route
               path="/item/:id"
               element={<ItemDetailContainer title="Detalle" />}

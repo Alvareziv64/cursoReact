@@ -1,7 +1,8 @@
 import React from "react";
-import './Item.css';
+import "./Item.css";
 
 const Item = ({ data }) => {
+
   return (
     <div className="card">
       <img src={data.img} className="card-img-top img" alt="Producto"></img>

@@ -26,11 +26,14 @@ const NavBar = () => {
             <Link to="/" className="nav-item nav-link active">
               Home
             </Link>
-            <Link to="/electronics" className="nav-item nav-link active">
-              Electronics
+            <Link to="/filter/avengers" className="nav-item nav-link active">
+              Avengers
             </Link>
-            <Link to="/mens" className="nav-item nav-link active">
-              Men's
+            <Link to="/filter/spiderman" className="nav-item nav-link active">
+              Spiderman
+            </Link>
+            <Link to="/filter/imprescindibles" className="nav-item nav-link active">
+              Imprescindibles
             </Link>
             <Link to="/cart" className="nav-item">
               <CartWidget />
