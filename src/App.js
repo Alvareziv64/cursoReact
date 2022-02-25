@@ -6,11 +6,8 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import { ItemProvider } from "./CartContext";
 //VIEWS
 import Home from "./components/Pages/Home";
-import Spiderman from "./components/Pages/Spiderman";
-import Avengers from "./components/Pages/Avengers";
-import Imprescindibles from "./components/Pages/Imprescindibles";
 import CartContainer from "./components/CartContainer/CartContainer";
-import Filter from "./components/Pages/Filter";
+import Filter from "./components/Pages/Section";
 
 const App = () => {
 
@@ -21,10 +18,7 @@ const App = () => {
           <NavBar />
           <Routes>
             <Route path="/" element={<Home />} />
-            <Route path="/spiderman" element={<Spiderman />} />
-            <Route path="/avengers" element={<Avengers />} />
-            <Route path="/imprescindibles" element={<Imprescindibles />} />
-            <Route path="/filter/:filter" element={<Filter />} />
+            <Route path="/section/:filter" element={<Filter title="filtro" />} />
             <Route
               path="/item/:id"
               element={<ItemDetailContainer title="Detalle" />}

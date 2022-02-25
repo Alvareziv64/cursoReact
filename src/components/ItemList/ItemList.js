@@ -5,10 +5,10 @@ import { Link } from "react-router-dom";
 
 const ItemList = ({ comicsData }) => {
   return (
-    <div>
+    <div className="Cards">
       {comicsData.map((data) => {
         return (
-          <div key={data.id} className="Cards">
+          <div key={data.id}>
             <Link to={`/item/${data.id}`}>
               <Item data={data} key={data.id} />
             </Link>
