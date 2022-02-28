@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
-import ItemList from "../ItemList/ItemList";
+import ItemList from "../../ItemList/ItemList";
 import { useParams } from "react-router-dom";
-import { db } from "../../firebase/firebaseConfig";
+import { db } from "../../../firebase/firebaseConfig";
 import { collection, where, getDocs, query } from "firebase/firestore";
 
 const Section = () => {
