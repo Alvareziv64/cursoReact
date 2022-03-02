@@ -15,6 +15,7 @@ const ItemList = ({ detail }) => {
     title: detail.title,
     quantity: counter,
     price: detail.price,
+    stock: detail.stock,
   };
 
   const stock = 5;
@@ -55,6 +56,7 @@ const ItemList = ({ detail }) => {
         <h4 className="card-title">{detail.name}</h4>
         <p className="card-text">{detail.title}</p>
         <h5>{"$" + detail.price}</h5>
+        <p>(stock: {detail.stock})</p>
         {onAdd === true ? (
           <div>
             <h5>Se agregaron {counter} articulos al carrito</h5>

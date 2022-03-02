@@ -30,7 +30,7 @@ export const ItemProvider = ({ children }) => {
   //restar 1 unidad al cart
   const restar = (itemId) => {
     const restarItem = cart.map((item) => {
-     return itemId === item.id && item.quantity > 1
+      return itemId === item.id && item.quantity > 1
         ? { ...item, quantity: item.quantity - 1 }
         : { ...item };
     });
@@ -40,17 +40,35 @@ export const ItemProvider = ({ children }) => {
 
   //Elimina el item del cart
   const borrar = (itemId) => {
-    const borrarItem = cart.filter((item) =>
-    item.id !== itemId);
-    setCart(borrarItem)
-  }
+    const borrarItem = cart.filter((item) => item.id !== itemId);
+    setCart(borrarItem);
+  };
 
   //Reduce para cantidad de items
   const nCantidad = cart.reduce((acc, { quantity }) => acc + quantity, 0);
+  //Reduce para sumar precio total
+  const nPrecio = cart.reduce(
+    (acc, { quantity, price }) => acc + quantity * price,
+    0
+  );
+  //Eliminar productos del carrito
+  const borrarTodo = () => {
+    setCart([]);
+  };
 
-  
   return (
-    <CartContext.Provider value={{ cart, setCart, addItem, nCantidad, sumar, restar, borrar}}>
+    <CartContext.Provider
+      value={{
+        cart,
+        addItem,
+        nCantidad,
+        nPrecio,
+        sumar,
+        restar,
+        borrar,
+        borrarTodo
+      }}
+    >
       {children}
     </CartContext.Provider>
   );

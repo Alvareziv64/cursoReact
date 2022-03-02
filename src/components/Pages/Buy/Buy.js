@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../../firebase/firebaseConfig";
 import { Link } from "react-router-dom";
 import "./Buy.css";
+import { CartContext } from "../../../CartContext";
 
 const initialState = {
   email: "",
@@ -11,11 +12,14 @@ const initialState = {
 };
 
 const Buy = () => {
+
+  const { cart, borrarTodo} =
+  useContext(CartContext);
   const [values, setValues] = useState(initialState);
   const [ventaId, setVentaId] = useState("");
   const onChage = (e) => {
     const { value, name } = e.target;
-    setValues({ ...values, [name]: value });
+    setValues({ ...values, [name]: value, ...cart});
   };
 
   const onSubmit = async (e) => {
@@ -34,9 +38,11 @@ const Buy = () => {
           <h4 className="ticket">
             Venta completada, el id de su compra es: {ventaId}
           </h4>
-          <Link to="/">          <button type="submit" className="btn btn-info">
-            Volver al home
-          </button></Link>
+          <Link to="/">
+            <button type="submit" className="btn btn-info">
+              Volver al home
+            </button>
+          </Link>
         </div>
       ) : (
         <form className="formVenta" onSubmit={onSubmit}>
@@ -78,7 +84,7 @@ const Buy = () => {
               onChange={onChage}
             ></input>
           </div>
-          <button type="submit" className="btn btn-success">
+          <button onClick={() => borrarTodo()} type="submit" className="btn btn-success">
             Terminar Compra
           </button>
         </form>

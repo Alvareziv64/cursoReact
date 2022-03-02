@@ -5,14 +5,12 @@ import "./ItemCount.css";
 const ItemCount = ({
   handlerCounterDown,
   handlerCounterUp,
-  stock,
   counter,
   auxFuncion,
 }) => {
   return (
     <div>
       <div className="divCantidad">
-        <p>(stock: {stock})</p>
         {counter > 0 ? <h5 className="cantidad">Cantidad: {counter}</h5> : null}
       </div>
       <h5>Agregar producto:</h5>

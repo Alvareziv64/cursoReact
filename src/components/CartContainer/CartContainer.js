@@ -4,18 +4,10 @@ import { Link } from "react-router-dom";
 import "./CartContainer.css";
 
 const CartContainer = () => {
-  const { cart, setCart, nCantidad, sumar, restar, borrar } =
+  const { cart, nCantidad, sumar, restar, borrar, nPrecio, borrarTodo} =
     useContext(CartContext);
 
-  //Reduce para sumar precio total
-  const nPrecio = cart.reduce(
-    (acc, { quantity, price }) => acc + quantity * price,
-    0
-  );
-  //Eliminar productos del carrito
-  const borrarTodo = () => {
-    setCart([]);
-  };
+
 
   return (
     <div className="container">
@@ -38,7 +30,7 @@ const CartContainer = () => {
                 <td>{item.quantity}</td>
                 <td>
                   <button
-                    onClick={() => sumar(item.id)}
+                    onClick={item.quantity < item.stock ? (() => sumar(item.id)) : null}
                     className="btn btn-info btn-sm"
                   >
                     +
@@ -49,15 +41,17 @@ const CartContainer = () => {
                   >
                     -
                   </button>
-                  <button
+                </td>
+                <td>
+                  <span>{"$" + item.price.toFixed(2) * item.quantity}</span>
+                </td>
+                <td>
+                <button
                     onClick={() => borrar(item.id)}
                     className="btn btn-outline-danger btn-sm"
                   >
-                    Borrar
+                    x
                   </button>
-                </td>
-                <td>
-                  <span>{"$" + item.price * item.quantity}</span>
                 </td>
               </tr>
             );
@@ -72,7 +66,7 @@ const CartContainer = () => {
               <td>{nCantidad}</td>
               <td>
                 <button
-                  onClick={borrarTodo}
+                  onClick={() => borrarTodo()}
                   className="btn btn-outline-danger btn-sm"
                 >
                   Vaciar carrito
@@ -84,7 +78,7 @@ const CartContainer = () => {
                 </Link>
               </td>
               <td className="font-weight-bold">
-                <span>{"$" + nPrecio}</span>
+                <span>{"$" + nPrecio.toFixed(2)}</span> 
               </td>
             </tr>
           ) : (

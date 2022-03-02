@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import ItemDetail from "../ItemDetail/ItemDetail";
-//import axios from "axios";
 import "./ItemDetailContainer.css";
 import { useParams } from "react-router-dom";
 //Firestore
@@ -19,12 +18,6 @@ const ItemDetailContainer = ({ title }) => {
 
   const { id } = useParams();
 
-  /*useEffect(() => {
-    axios(`https://fakestoreapi.com/products/${productId}`).then((json) => {
-      setProduct(json.data)
-      setLoading(false);
-   } );
-  }, [productId]);*/
 
   useEffect(() => {
     const getComics = async () => {
@@ -56,3 +49,16 @@ const ItemDetailContainer = ({ title }) => {
 };
 
 export default ItemDetailContainer;
+
+
+
+//Peticion con AXIOS:
+
+//import axios from "axios";
+
+  /*useEffect(() => {
+    axios(`https://fakestoreapi.com/products/${productId}`).then((json) => {
+      setProduct(json.data)
+      setLoading(false);
+   } );
+  }, [productId]);*/
