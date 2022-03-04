@@ -1,8 +1,4 @@
-.img {
+.MuiCardMedia-img{
+  max-height: 390px;
   width: 100%;
-  height: auto;
-}
-
-.card {
-  width: 250px;
 }

@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ItemProvider } from "./CartContext";
 //COMPONENTS
 import NavBar from "./components/NavBar/Navbar";
-import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import ItemDetailPage from "./components/Pages/ItemDetailPage/ItemDetailPage";
 import Cart from "./components/Pages/Cart/Cart";
 //VIEWS
 import Home from "./components/Pages/Home/Home";
@@ -25,7 +25,7 @@ const App = () => {
             <Route path="/section/:filter" element={<Section title="filtro" />} />
             <Route
               path="/item/:id"
-              element={<ItemDetailContainer title="Detalle" />}
+              element={<ItemDetailPage />}
             />
             <Route path="/cart" element={<Cart title="Carrito" />} />
           </Routes>

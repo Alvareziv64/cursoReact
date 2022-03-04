@@ -1,8 +1,10 @@
 .div{
   display: flex;
+  align-items: center;
+  padding: 20px;
 }
 
-
+/*
 .image {
   width: 100%;
   height: auto;
@@ -12,12 +14,12 @@
   width: 400px;
 
 }
-
+*/
 .comprar{
   margin-top: 5px;
 }
-
+/*
 .btn{
   margin-top: 8px;
   margin-left: 8px;
-}
+}*/

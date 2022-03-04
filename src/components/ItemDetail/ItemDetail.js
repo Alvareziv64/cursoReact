@@ -3,6 +3,24 @@ import { Link } from "react-router-dom";
 import "./ItemDetail.css";
 import ItemCount from "../ItemCount/ItemCount";
 import { CartContext } from "../../CartContext";
+import {
+  Button,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+//Dark Theme
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#fff",
+    },
+  },
+});
 
 const ItemList = ({ detail }) => {
   const [counter, setCounter] = useState(0);
@@ -44,8 +62,66 @@ const ItemList = ({ detail }) => {
   };
 
   return (
-    <div className="div">
-      <div className="card">
+    <ThemeProvider theme={darkTheme}>
+      <Card sx={{ maxWidth: 400 }}>
+          <div className="div">
+            <div>
+              <CardMedia
+                className="MuiCardMedia-img"
+                component="img"
+                image={detail.img}
+                alt="comic"
+              />
+            </div>
+            <div>
+              <CardContent>
+                <Typography gutterBottom variant="h6" component="div">
+                  {detail.name}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  {detail.title}
+                </Typography>
+                <Typography gutterBottom variant="subtitle1" component="div">
+                  {"$" + detail.price}
+                </Typography>
+                <Typography gutterBottom variant="subtitle1" component="div">
+                 Stock: {detail.stock - counter}
+                </Typography>
+                {onAdd === true ? (
+          <div>
+            <Typography gutterBottom variant="subtitle1" component="div">
+             {counter} items added to cart
+                </Typography>
+            <Link to="/" style={{ textDecoration: "none" }}> 
+            <Button variant="contained" color="success" size="small">Keep buying</Button>
+            </Link>
+            <Link to="/cart" style={{ textDecoration: "none" }}>
+            <Button variant="outlined" color="success" size="small" className="comprar">Show cart</Button>
+            </Link>
+          </div>
+        ) : (
+          <div>
+            <ItemCount
+              handlerCounterDown={handlerCounterDown}
+              handlerCounterUp={handlerCounterUp}
+              counter={counter}
+              stock={stock}
+              auxFuncion={auxFuncion}
+            />
+          </div>
+        )}
+              </CardContent>
+            </div>
+          </div>
+      </Card>
+    </ThemeProvider>
+  );
+};
+
+export default ItemList;
+
+/*
+<div className="card">
         <img
           src={detail.img}
           className="card-img-top image"
@@ -79,8 +155,4 @@ const ItemList = ({ detail }) => {
           </div>
         )}
       </div>
-    </div>
-  );
-};
-
-export default ItemList;
+      */

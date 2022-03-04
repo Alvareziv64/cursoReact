@@ -35,8 +35,6 @@ const ItemDetailContainer = ({ title }) => {
 
   return (
     <div className="container detail">
-      <h1>{title}</h1>
-
       {loading ? (
         <p>Cargando...</p>
       ) : (

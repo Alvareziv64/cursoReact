@@ -1,6 +1,7 @@
 .cartC{
     display: flex;
-    margin-top: 6px;
+  
+    align-items: center;
 }
 
 .fa-solid{

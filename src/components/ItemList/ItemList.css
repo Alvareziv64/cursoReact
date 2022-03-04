@@ -1,4 +1,7 @@
-.Cards {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+.gridContainer{
+  padding-left: 40px;
+}
+
+.gridItem{
+  padding-top: 20px;
 }

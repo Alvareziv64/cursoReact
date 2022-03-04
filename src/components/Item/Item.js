@@ -1,16 +1,48 @@
-import React from "react";
+import * as React from "react";
 import "./Item.css";
+import {
+  CardActionArea,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+} from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+
+//Dark Theme
+const darkTheme = createTheme({
+  palette: {
+    mode: "dark",
+    primary: {
+      main: "#fff",
+    },
+  },
+});
 
 const Item = ({ data }) => {
-
   return (
-    <div className="card">
-      <img src={data.img} className="card-img-top img" alt="Producto"></img>
-      <div className="card-body">
-        <h5 className="card-title">{data.name}</h5>
-        <p className="card-text">{data.title}</p>
-      </div>
-    </div>
+    <ThemeProvider theme={darkTheme}>
+      <Card sx={{ maxWidth: 280 }}>
+        <CardActionArea>
+          <CardMedia className="MuiCardMedia-img"
+            component="img"
+            image={data.img}
+            alt="comic"
+          />
+          <CardContent>
+            <Typography gutterBottom variant="h6" component="div">
+              {data.name}
+            </Typography>
+            <Typography variant="body2" color="text.secondary">
+              {data.title}
+            </Typography>
+            <Typography gutterBottom variant="subtitle1" component="div">
+              {"$" + data.price}
+            </Typography>
+          </CardContent>
+        </CardActionArea>
+      </Card>
+    </ThemeProvider>
   );
 };
 

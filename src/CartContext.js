@@ -1,4 +1,4 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useState, useLayoutEffect } from "react";
 
 export const CartContext = createContext();
 
@@ -56,6 +56,21 @@ export const ItemProvider = ({ children }) => {
     setCart([]);
   };
 
+  //Windos Size
+  const useWindowSize = () => {
+    const [size, setSize] = useState([0]);
+    useLayoutEffect(() => {
+      const updateSize = () => {
+        setSize([window.innerWidth]);
+      }
+      window.addEventListener('resize', updateSize);
+      updateSize();
+      return () => window.removeEventListener('resize', updateSize);
+    }, []);
+    return size;
+  }
+
+
   return (
     <CartContext.Provider
       value={{
@@ -66,7 +81,8 @@ export const ItemProvider = ({ children }) => {
         sumar,
         restar,
         borrar,
-        borrarTodo
+        borrarTodo,
+        useWindowSize,
       }}
     >
       {children}
