@@ -5,7 +5,7 @@ import "./ItemListContainer.css";
 import { db } from "../../firebase/firebaseConfig";
 import { collection, query, getDocs } from "firebase/firestore";
 
-const ItemListContainer = ({ greeting }) => {
+const ItemListContainer = () => {
   const [comicsData, setComicsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -26,7 +26,6 @@ const ItemListContainer = ({ greeting }) => {
 
   return (
     <div className="container">
-      <h1>{greeting}</h1>
       {loading ? <p>Cargando...</p> : <ItemList comicsData={comicsData} />}
     </div>
   );
