@@ -1,8 +1,40 @@
 .divCantidad{
     display: flex;
+    justify-content: flex-start;
 }
 
-.cantidad{
-    margin-left: 5px;
+.btns{
+    padding-left: 5px;
 }
 
+.btnMinus{
+    border-radius: 5px;
+    background-color: red;
+    color: white;
+    width: 26px;
+    height: 26px;
+    border: none;
+    margin: 1px;
+}
+
+.btnMinus:hover{
+    background-color: brown;
+}
+
+.btnAdd{
+    border-radius: 5px;
+    background-color: rgb(0, 204, 255);
+    color: white;
+    width: 26px;
+    height: 26px;
+    border: none;
+    margin: 1px;
+}
+
+.btnAdd:hover{
+    background-color: rgb(42, 140, 165);
+}
+
+.btnAddCart{
+    margin-top: 5px;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import "./ItemCount.css";
-
+import { Button } from "@mui/material";
 
 const ItemCount = ({
   handlerCounterDown,
@@ -11,22 +11,21 @@ const ItemCount = ({
   return (
     <div>
       <div className="divCantidad">
-        {counter > 0 ? <h5 className="cantidad">Cantidad: {counter}</h5> : null}
-      </div>
-      <h5>Agregar producto:</h5>
-      <div>
-        <button onClick={handlerCounterUp} className="btn btn-info btn-sm">
-          +
-        </button>
-        <button onClick={handlerCounterDown} className="btn btn-danger btn-sm">
-          -
-        </button>
-      </div>
-      {counter > 0 ? (
-          <button onClick={auxFuncion} className="btn btn-success btn-sm">
-            Agregar al carrito
+        <h5>Buy: {counter}</h5>
+        <div className="btns">
+          <button onClick={handlerCounterUp} className="btnAdd">
+            +
           </button>
-      ) : null}
+          <button onClick={handlerCounterDown} className="btnMinus">
+            -
+          </button>
+        </div>
+      </div>
+      <div className="btnAddCart">
+        <button onClick={auxFuncion} className="btn btn-success btn-sm">
+          ADD TO CART
+        </button>
+      </div>
     </div>
   );
 };
