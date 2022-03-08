@@ -11,6 +11,13 @@ import {
   Typography,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 //Dark Theme
 const darkTheme = createTheme({
@@ -25,6 +32,19 @@ const darkTheme = createTheme({
 const ItemList = ({ detail }) => {
   const [counter, setCounter] = useState(1);
   const [onAdd, setOnAdd] = useState(false);
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
 
   const { addItem } = useContext(CartContext);
   const newState = {
@@ -47,6 +67,7 @@ const ItemList = ({ detail }) => {
   const auxFuncion = () => {
     addItem(newState);
     addToCart();
+    handleClick();
   };
 
   const handlerCounterUp = () => {
@@ -60,6 +81,14 @@ const ItemList = ({ detail }) => {
       setCounter(counter - 1);
     }
   };
+
+  const [state, setState] = useState({
+    open: false,
+    vertical: 'top',
+    horizontal: 'right',
+  });
+
+  const { vertical, horizontal} = state;
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -122,8 +151,21 @@ const ItemList = ({ detail }) => {
           </div>
         </div>
       </Card>
+      <Stack spacing={2} sx={{ width: '100%' }}>
+      <Snackbar open={open} anchorOrigin={{ vertical, horizontal }} key={vertical + horizontal} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+          Comics added to cart!
+        </Alert>
+      </Snackbar>
+    </Stack>
+
     </ThemeProvider>
   );
 };
 
 export default ItemList;
+
+
+
+
+

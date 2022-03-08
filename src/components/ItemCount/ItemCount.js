@@ -1,12 +1,12 @@
 import React from "react";
 import "./ItemCount.css";
-import { Button } from "@mui/material";
 
 const ItemCount = ({
   handlerCounterDown,
   handlerCounterUp,
   counter,
   auxFuncion,
+  handleClose,
 }) => {
   return (
     <div>
@@ -31,3 +31,6 @@ const ItemCount = ({
 };
 
 export default ItemCount;
+
+/*
+ */

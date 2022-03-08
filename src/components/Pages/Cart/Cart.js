@@ -1,10 +1,16 @@
-import React from 'react'
-import CartContainer from '../../CartContainer/CartContainer'
+import React from "react";
+import CartContainer from "../../CartContainer/CartContainer";
+import Footer from "../../Footer/Footer";
+import Divisor from "../../Divisor/Divisor"
 
 const Cart = () => {
   return (
-    <CartContainer/>
-  )
-}
+    <div style={{backgroundColor: "rgb(27, 26, 26)"}}>
+      <Divisor text="CART"/> 
+      <CartContainer />
+      <Footer />
+    </div>
+  );
+};
 
-export default Cart
+export default Cart;

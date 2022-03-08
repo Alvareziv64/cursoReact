@@ -6,11 +6,11 @@ const Footer = () => {
   return (
     <div>
       <img src={BannerFooter} alt="banner" className="BannerFooter"></img>
-      <div class="footer">
+      <div className="footer">
             <p>Ivan Alvarez - Front-end Dev</p>
             <p>alvarez.iv64@gmail.com</p>
-            <div>Mi perfil en <a href="https://www.linkedin.com/in/ivan-alvarez-0ba4231b3/" target="_blank" rel="noreferrer">LinkedIn</a></div>
-            <p class="gracias">¡Gracias!</p>
+            <div>My <a href="https://www.linkedin.com/in/ivan-alvarez-0ba4231b3/" target="_blank" rel="noreferrer">LinkedIn</a> profile</div>
+            <p className="gracias">Thanks for watching!</p>
         </div>
     </div>
 

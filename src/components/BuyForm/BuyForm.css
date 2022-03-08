@@ -1,0 +1,29 @@
+.divVenta{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    margin-bottom: 20px;
+    min-height: 300px;
+}
+
+.formVenta{
+    max-width: 800px;
+    margin-top: 20px;
+}
+
+.ticket{
+    margin-top: 20px;
+    color: white;
+}
+
+.btnFinish{
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+}
+
+.finishH2{
+    text-align: center;
+    margin-top: 10px;
+}

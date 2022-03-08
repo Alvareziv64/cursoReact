@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import ItemList from "../../ItemList/ItemList";
+import Divisor from "../../Divisor/Divisor";
+import Footer from "../../Footer/Footer";
+import "./Section.css";
 import { useParams } from "react-router-dom";
 import { db } from "../../../firebase/firebaseConfig";
 import { collection, where, getDocs, query } from "firebase/firestore";
@@ -24,9 +27,12 @@ const Section = () => {
   }, [filter]);
 
   return (
-    <div className="container">
-      <h1>{filter.toUpperCase()}</h1>
-      {loading ? <p>Cargando...</p> : <ItemList comicsData={filterData} />}
+    <div style={{ backgroundColor: "rgb(27, 26, 26)" }} >
+      <Divisor text={filter.toUpperCase()} />
+      <div className="main">
+        {loading ? <p>Cargando...</p> : <ItemList comicsData={filterData} />}
+      </div>
+      <Footer />
     </div>
   );
 };
