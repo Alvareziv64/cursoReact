@@ -9,7 +9,7 @@ const Home = () => {
   return (
     <div style={{backgroundColor: "rgb(27, 26, 26)"}}>
       <Banner />
-      <Divisor text="PRODUCTS"/>
+      <Divisor text="COMICS"/>
       <ItemListContainer/>
       <Footer/>
     </div>

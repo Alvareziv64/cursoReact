@@ -1,7 +1,12 @@
-.gridContainer{
-  padding-left: 40px;
+
+.gridDiv{
+  display: grid;
+  gap: 20px;
+  grid-auto-rows: auto;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
 }
 
 .gridItem{
-  padding-top: 20px;
+  justify-self: center;
+
 }

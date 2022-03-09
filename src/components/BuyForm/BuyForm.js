@@ -4,6 +4,13 @@ import { db } from "../../firebase/firebaseConfig";
 import { Link } from "react-router-dom";
 import "./BuyForm.css";
 import { CartContext } from "../../CartContext";
+import Stack from '@mui/material/Stack';
+import Snackbar from '@mui/material/Snackbar';
+import MuiAlert from '@mui/material/Alert';
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
 
 const initialState = {
   email: "",
@@ -28,6 +35,23 @@ const BuyForm = () => {
     setVentaId(docRef.id);
     setValues(initialState);
   };
+
+  const [open, setOpen] = React.useState(false);
+
+  const handleClick = () => {
+    setOpen(true);
+  };
+
+  const handleClose = (e, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+
+    setOpen(false);
+  };
+ 
+  const vertical = "top";
+  const horizontal = "right";
 
   return (
     <div>
@@ -87,7 +111,7 @@ const BuyForm = () => {
               ></input>
             </div>
             <button
-              onClick={() => borrarTodo()}
+              onClick={() => borrarTodo() + handleClick()}
               type="submit"
               className="btn btn-success"
             >
@@ -96,6 +120,13 @@ const BuyForm = () => {
           </form>
         )}
       </div>
+      <Stack spacing={2} sx={{ width: '100%' }}>
+      <Snackbar open={open} anchorOrigin={{ vertical, horizontal }} key={vertical + horizontal} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
+        Successful purchase!
+        </Alert>
+      </Snackbar>
+    </Stack>
     </div>
   );
 };

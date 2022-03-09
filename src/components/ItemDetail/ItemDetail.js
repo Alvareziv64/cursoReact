@@ -29,7 +29,7 @@ const darkTheme = createTheme({
   },
 });
 
-const ItemList = ({ detail }) => {
+const ItemDetail = ({ detail }) => {
   const [counter, setCounter] = useState(1);
   const [onAdd, setOnAdd] = useState(false);
   const [open, setOpen] = React.useState(false);
@@ -38,7 +38,7 @@ const ItemList = ({ detail }) => {
     setOpen(true);
   };
 
-  const handleClose = (event, reason) => {
+  const handleClose = (e, reason) => {
     if (reason === 'clickaway') {
       return;
     }
@@ -82,13 +82,8 @@ const ItemList = ({ detail }) => {
     }
   };
 
-  const [state, setState] = useState({
-    open: false,
-    vertical: 'top',
-    horizontal: 'right',
-  });
-
-  const { vertical, horizontal} = state;
+  const vertical = "top";
+  const horizontal = "right";
 
   return (
     <ThemeProvider theme={darkTheme}>
@@ -163,7 +158,7 @@ const ItemList = ({ detail }) => {
   );
 };
 
-export default ItemList;
+export default ItemDetail;
 
 
 

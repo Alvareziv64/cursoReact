@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ItemList from "../ItemList/ItemList";
 import "./ItemListContainer.css";
+import { Skeleton, Stack } from "@mui/material";
 //Firestore
 import { db } from "../../firebase/firebaseConfig";
 import { collection, query, getDocs } from "firebase/firestore";
@@ -23,10 +24,58 @@ const ItemListContainer = () => {
     getComics();
   }, []);
 
-
   return (
     <div>
-      {loading ? <p>Cargando...</p> : <ItemList comicsData={comicsData} />}
+      {loading ? (
+        <div>
+          <div className="skeleton">
+            <Stack spacing={1}>
+              <Skeleton variant="rectangular" width={260} height={280} />
+              <Skeleton variant="text" width={260} />
+              <Skeleton variant="text" width={260} />
+            </Stack>
+            <Stack spacing={1}>
+              <Skeleton variant="rectangular" width={260} height={280} />
+              <Skeleton variant="text" width={260} />
+              <Skeleton variant="text" width={260} />
+            </Stack>
+            <Stack spacing={1}>
+              <Skeleton variant="rectangular" width={260} height={280} />
+              <Skeleton variant="text" width={260} />
+              <Skeleton variant="text" width={260} />
+            </Stack>
+            <Stack spacing={1}>
+              <Skeleton variant="rectangular" width={260} height={280} />
+              <Skeleton variant="text" width={260} />
+              <Skeleton variant="text" width={260} />
+            </Stack>
+          </div>
+          <div className="skeleton">
+            <Stack spacing={1}>
+              <Skeleton variant="rectangular" width={260} height={280} />
+              <Skeleton variant="text" width={260} />
+              <Skeleton variant="text" width={260} />
+            </Stack>
+            <Stack spacing={1}>
+              <Skeleton variant="rectangular" width={260} height={280} />
+              <Skeleton variant="text" width={260} />
+              <Skeleton variant="text" width={260} />
+            </Stack>
+            <Stack spacing={1}>
+              <Skeleton variant="rectangular" width={260} height={280} />
+              <Skeleton variant="text" width={260} />
+              <Skeleton variant="text" width={260} />
+            </Stack>
+            <Stack spacing={1}>
+              <Skeleton variant="rectangular" width={260} height={280} />
+              <Skeleton variant="text" width={260} />
+              <Skeleton variant="text" width={260} />
+            </Stack>
+          </div>
+        </div>
+      ) : (
+        <ItemList comicsData={comicsData} />
+      )}
     </div>
   );
 };

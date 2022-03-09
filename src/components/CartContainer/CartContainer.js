@@ -8,7 +8,7 @@ const CartContainer = () => {
     useContext(CartContext);
 
   return (
-    <div className="container">
+    <div className="container divCart">
       <table className="table">
         <thead>
           <tr className="tableCart">
