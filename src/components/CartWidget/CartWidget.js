@@ -9,7 +9,11 @@ const CartWidget = () => {
       <div>
         <i className="fa-solid fa-cart-shopping fa-xs"></i>
       </div>
-        {nCantidad > 0 ? <div className="cartNum"><div className="num">{nCantidad}</div></div> : null}
+      {nCantidad > 0 ? (
+        <div className="cartNum">
+          <div className="num">{nCantidad}</div>
+        </div>
+      ) : null}
     </div>
   );
 };

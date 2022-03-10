@@ -1,10 +1,8 @@
-import React from 'react'
-import "./Divisor.css"
+import React from "react";
+import "./Divisor.css";
 
-const Divisor = ({text}) => {
-  return (
-    <div className='divisor'>{text}</div>
-  )
-}
+const Divisor = ({ text }) => {
+  return <div className="divisor">{text}</div>;
+};
 
-export default Divisor
+export default Divisor;

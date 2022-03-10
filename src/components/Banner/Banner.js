@@ -1,7 +1,10 @@
 import React, { useContext } from 'react';
+// CSS
 import "./Banner.css"
+// IMAGENES
 import Bnr from "../../img/bnr1.jpg";
 import BnrC from "../../img/bnr1C.jpg";
+// CONTEXT
 import { CartContext } from "../../CartContext";
 
 

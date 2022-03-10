@@ -1,17 +1,24 @@
 import React, { useState, useContext } from "react";
+// FIREBASE
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../firebase/firebaseConfig";
+// LINK RRD
 import { Link } from "react-router-dom";
+// CSS
 import "./BuyForm.css";
+// CONTEXT
 import { CartContext } from "../../CartContext";
-import Stack from '@mui/material/Stack';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
+// MATERIAL UI
+import Stack from "@mui/material/Stack";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 
+// ALERT PURCHASE SUCCESS
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
+// FORM INFO
 const initialState = {
   email: "",
   name: "",
@@ -27,6 +34,7 @@ const BuyForm = () => {
     setValues({ ...values, [name]: value, ...cart });
   };
 
+  //AGREGAR VENTA A FIREBASE
   const onSubmit = async (e) => {
     e.preventDefault();
     const docRef = await addDoc(collection(db, "ventas"), {
@@ -36,20 +44,17 @@ const BuyForm = () => {
     setValues(initialState);
   };
 
+  // ALERT CONFIG
   const [open, setOpen] = React.useState(false);
-
   const handleClick = () => {
     setOpen(true);
   };
-
   const handleClose = (e, reason) => {
-    if (reason === 'clickaway') {
+    if (reason === "clickaway") {
       return;
     }
-
     setOpen(false);
   };
- 
   const vertical = "top";
   const horizontal = "right";
 
@@ -120,13 +125,23 @@ const BuyForm = () => {
           </form>
         )}
       </div>
-      <Stack spacing={2} sx={{ width: '100%' }}>
-      <Snackbar open={open} anchorOrigin={{ vertical, horizontal }} key={vertical + horizontal} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-        Successful purchase!
-        </Alert>
-      </Snackbar>
-    </Stack>
+      <Stack spacing={2} sx={{ width: "100%" }}>
+        <Snackbar
+          open={open}
+          anchorOrigin={{ vertical, horizontal }}
+          key={vertical + horizontal}
+          autoHideDuration={6000}
+          onClose={handleClose}
+        >
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            Successful purchase!
+          </Alert>
+        </Snackbar>
+      </Stack>
     </div>
   );
 };

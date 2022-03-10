@@ -1,10 +1,13 @@
 import React, { useContext } from "react";
+// CONTEXT
 import { CartContext } from "../../CartContext";
+// LINK RRD
 import { Link } from "react-router-dom";
+// CSS
 import "./CartContainer.css";
 
 const CartContainer = () => {
-  const { cart, nCantidad, sumar, restar, borrar, nPrecio} =
+  const { cart, nCantidad, sumar, restar, borrar, nPrecio } =
     useContext(CartContext);
 
   return (
@@ -70,9 +73,10 @@ const CartContainer = () => {
 
               <td>{nCantidad}</td>
               <td>
-
                 <Link to="/buy" className="nav-item">
-                  <button className="btn btn-success btn-sm btnCheckout">Checkout</button>
+                  <button className="btn btn-success btn-sm btnCheckout">
+                    Checkout
+                  </button>
                 </Link>
               </td>
               <td className="font-weight-bold">
@@ -89,9 +93,12 @@ const CartContainer = () => {
         </tfoot>
       </table>
       {nCantidad === 0 ? (
-        <div className="divGoShop"><Link to="/">
-        <button className="btn btn-info goShop btn-lg">GO SHOP!</button>
-      </Link></div>) : null}
+        <div className="divGoShop">
+          <Link to="/">
+            <button className="btn btn-info goShop btn-lg">GO SHOP!</button>
+          </Link>
+        </div>
+      ) : null}
     </div>
   );
 };

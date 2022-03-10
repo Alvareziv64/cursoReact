@@ -1,5 +1,7 @@
 import * as React from "react";
+// CSS
 import "./Item.css";
+// MATERIAL UI
 import {
   CardActionArea,
   Card,
@@ -9,7 +11,7 @@ import {
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-//Dark Theme
+// DARK THEME PARA CARD
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -24,7 +26,8 @@ const Item = ({ data }) => {
     <ThemeProvider theme={darkTheme}>
       <Card sx={{ maxWidth: 280 }}>
         <CardActionArea>
-          <CardMedia className="MuiCardMedia-img"
+          <CardMedia
+            className="MuiCardMedia-img"
             component="img"
             image={data.img}
             alt="comic"

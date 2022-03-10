@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
+// COMPONENTS
 import ItemDetail from "../ItemDetail/ItemDetail";
+// CSS
 import "./ItemDetailContainer.css";
+// RRD
 import { useParams } from "react-router-dom";
 //Firestore
 import { db } from "../../firebase/firebaseConfig";
@@ -11,10 +14,11 @@ import {
   where,
   documentId,
 } from "firebase/firestore";
+// MATERIAL UI
 import { Skeleton, Stack, Card } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-//Dark Theme
+//Dark Theme for Card
 const darkTheme = createTheme({
   palette: {
     mode: "dark",
@@ -47,14 +51,16 @@ const ItemDetailContainer = ({ title }) => {
   return (
     <div className="container detail">
       {loading ? (
-          <ThemeProvider theme={darkTheme}>        <Card sx={{ maxWidth: 700 }}>
-          <Stack spacing={1}>
-            <Skeleton variant="rectangular" width={260} height={280} />
-            <Skeleton variant="text" width={260} />
-            <Skeleton variant="text" width={260} />
-          </Stack>
-        </Card></ThemeProvider>
-
+        <ThemeProvider theme={darkTheme}>
+          {" "}
+          <Card sx={{ maxWidth: 700 }}>
+            <Stack spacing={1}>
+              <Skeleton variant="rectangular" width={260} height={280} />
+              <Skeleton variant="text" width={260} />
+              <Skeleton variant="text" width={260} />
+            </Stack>
+          </Card>
+        </ThemeProvider>
       ) : (
         comicsData.map((data) => {
           return <ItemDetail detail={data} key={data.id} />;
@@ -65,14 +71,3 @@ const ItemDetailContainer = ({ title }) => {
 };
 
 export default ItemDetailContainer;
-
-//Peticion con AXIOS:
-
-//import axios from "axios";
-
-/*useEffect(() => {
-    axios(`https://fakestoreapi.com/products/${productId}`).then((json) => {
-      setProduct(json.data)
-      setLoading(false);
-   } );
-  }, [productId]);*/

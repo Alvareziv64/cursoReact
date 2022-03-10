@@ -6,7 +6,6 @@ const ItemCount = ({
   handlerCounterUp,
   counter,
   auxFuncion,
-  handleClose,
 }) => {
   return (
     <div>
@@ -31,6 +30,3 @@ const ItemCount = ({
 };
 
 export default ItemCount;
-
-/*
- */

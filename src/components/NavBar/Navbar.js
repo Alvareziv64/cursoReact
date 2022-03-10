@@ -1,10 +1,10 @@
-import "./navbar.css";
+import * as React from "react";
+// RRD
 import { Link } from "react-router-dom";
 // Components
 import CartWidget from "../CartWidget/CartWidget";
 import Logo from "../Logo/Logo";
 // MUI
-import * as React from "react";
 import {
   AppBar,
   Box,
@@ -17,14 +17,14 @@ import {
   MenuItem,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 
-//Dark Theme 
+//Dark Theme
 const darkTheme = createTheme({
   palette: {
-    mode: 'dark',
+    mode: "dark",
     primary: {
-      main: '#fff',
+      main: "#fff",
     },
   },
 });
@@ -53,7 +53,9 @@ const NavBar = () => {
               component="div"
               sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
             >
-              <Link to="/"><Logo /></Link>
+              <Link to="/">
+                <Logo />
+              </Link>
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
@@ -88,7 +90,10 @@ const NavBar = () => {
                 <div>
                   <MenuItem onClick={handleCloseNavMenu}>
                     <Typography textAlign="center">
-                      <Link to="/" style={{ textDecoration: "none", color: "white" }}>
+                      <Link
+                        to="/"
+                        style={{ textDecoration: "none", color: "white" }}
+                      >
                         Home
                       </Link>
                     </Typography>
@@ -172,9 +177,11 @@ const NavBar = () => {
               </Link>
             </Box>
             <Box sx={{ flexGrow: 0 }}>
-                <IconButton  sx={{ p: 0 }}>
-                 <Link to="/cart" style={{ textDecoration: "none" }}><CartWidget/></Link> 
-                </IconButton>
+              <IconButton sx={{ p: 0 }}>
+                <Link to="/cart" style={{ textDecoration: "none" }}>
+                  <CartWidget />
+                </Link>
+              </IconButton>
             </Box>
           </Toolbar>
         </Container>

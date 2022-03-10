@@ -1,19 +1,24 @@
 import React, { useState, useContext } from "react";
+// LINK RRD
 import { Link } from "react-router-dom";
+// CSS
 import "./ItemDetail.css";
+// COMPONENTS
 import ItemCount from "../ItemCount/ItemCount";
+// CONTEXT
 import { CartContext } from "../../CartContext";
+// MATERIAL UI
 import {
   Button,
   Card,
   CardContent,
   CardMedia,
   Typography,
+  Stack,
+  Snackbar,
 } from "@mui/material";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
-import Stack from '@mui/material/Stack';
-import Snackbar from '@mui/material/Snackbar';
-import MuiAlert from '@mui/material/Alert';
+import MuiAlert from "@mui/material/Alert";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -32,19 +37,6 @@ const darkTheme = createTheme({
 const ItemDetail = ({ detail }) => {
   const [counter, setCounter] = useState(1);
   const [onAdd, setOnAdd] = useState(false);
-  const [open, setOpen] = React.useState(false);
-
-  const handleClick = () => {
-    setOpen(true);
-  };
-
-  const handleClose = (e, reason) => {
-    if (reason === 'clickaway') {
-      return;
-    }
-
-    setOpen(false);
-  };
 
   const { addItem } = useContext(CartContext);
   const newState = {
@@ -55,8 +47,6 @@ const ItemDetail = ({ detail }) => {
     price: detail.price,
     stock: detail.stock,
   };
-
-  const stock = 5;
 
   const addToCart = () => {
     if (counter > 0) {
@@ -71,17 +61,27 @@ const ItemDetail = ({ detail }) => {
   };
 
   const handlerCounterUp = () => {
-    if (counter < stock) {
+    if (counter < detail.stock) {
       setCounter(counter + 1);
     }
   };
-
   const handlerCounterDown = () => {
-    if (counter > 0) {
+    if (counter > 1) {
       setCounter(counter - 1);
     }
   };
 
+  //ALERT ADD TO CART
+  const [open, setOpen] = React.useState(false);
+  const handleClick = () => {
+    setOpen(true);
+  };
+  const handleClose = (e, reason) => {
+    if (reason === "clickaway") {
+      return;
+    }
+    setOpen(false);
+  };
   const vertical = "top";
   const horizontal = "right";
 
@@ -109,7 +109,7 @@ const ItemDetail = ({ detail }) => {
                 {"$" + detail.price}
               </Typography>
               <Typography gutterBottom variant="body2" component="div">
-                Stock: {detail.stock - counter}
+                Stock: {detail.stock}
               </Typography>
               {onAdd === true ? (
                 <div>
@@ -137,7 +137,6 @@ const ItemDetail = ({ detail }) => {
                     handlerCounterDown={handlerCounterDown}
                     handlerCounterUp={handlerCounterUp}
                     counter={counter}
-                    stock={stock}
                     auxFuncion={auxFuncion}
                   />
                 </div>
@@ -146,21 +145,25 @@ const ItemDetail = ({ detail }) => {
           </div>
         </div>
       </Card>
-      <Stack spacing={2} sx={{ width: '100%' }}>
-      <Snackbar open={open} anchorOrigin={{ vertical, horizontal }} key={vertical + horizontal} autoHideDuration={6000} onClose={handleClose}>
-        <Alert onClose={handleClose} severity="success" sx={{ width: '100%' }}>
-          Comics added to cart!
-        </Alert>
-      </Snackbar>
-    </Stack>
-
+      <Stack spacing={2} sx={{ width: "100%" }}>
+        <Snackbar
+          open={open}
+          anchorOrigin={{ vertical, horizontal }}
+          key={vertical + horizontal}
+          autoHideDuration={6000}
+          onClose={handleClose}
+        >
+          <Alert
+            onClose={handleClose}
+            severity="success"
+            sx={{ width: "100%" }}
+          >
+            Comics added to cart!
+          </Alert>
+        </Snackbar>
+      </Stack>
     </ThemeProvider>
   );
 };
 
 export default ItemDetail;
-
-
-
-
-

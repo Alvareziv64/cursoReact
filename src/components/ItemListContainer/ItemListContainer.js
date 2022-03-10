@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
+// COMPONENTS
 import ItemList from "../ItemList/ItemList";
+import Placeholder from "../Placeholder/Placeholder";
+// CSS
 import "./ItemListContainer.css";
-import { Skeleton, Stack } from "@mui/material";
+
 //Firestore
 import { db } from "../../firebase/firebaseConfig";
 import { collection, query, getDocs } from "firebase/firestore";
@@ -29,48 +32,16 @@ const ItemListContainer = () => {
       {loading ? (
         <div>
           <div className="skeleton">
-            <Stack spacing={1}>
-              <Skeleton variant="rectangular" width={260} height={280} />
-              <Skeleton variant="text" width={260} />
-              <Skeleton variant="text" width={260} />
-            </Stack>
-            <Stack spacing={1}>
-              <Skeleton variant="rectangular" width={260} height={280} />
-              <Skeleton variant="text" width={260} />
-              <Skeleton variant="text" width={260} />
-            </Stack>
-            <Stack spacing={1}>
-              <Skeleton variant="rectangular" width={260} height={280} />
-              <Skeleton variant="text" width={260} />
-              <Skeleton variant="text" width={260} />
-            </Stack>
-            <Stack spacing={1}>
-              <Skeleton variant="rectangular" width={260} height={280} />
-              <Skeleton variant="text" width={260} />
-              <Skeleton variant="text" width={260} />
-            </Stack>
+            <Placeholder />
+            <Placeholder />
+            <Placeholder />
+            <Placeholder />
           </div>
           <div className="skeleton">
-            <Stack spacing={1}>
-              <Skeleton variant="rectangular" width={260} height={280} />
-              <Skeleton variant="text" width={260} />
-              <Skeleton variant="text" width={260} />
-            </Stack>
-            <Stack spacing={1}>
-              <Skeleton variant="rectangular" width={260} height={280} />
-              <Skeleton variant="text" width={260} />
-              <Skeleton variant="text" width={260} />
-            </Stack>
-            <Stack spacing={1}>
-              <Skeleton variant="rectangular" width={260} height={280} />
-              <Skeleton variant="text" width={260} />
-              <Skeleton variant="text" width={260} />
-            </Stack>
-            <Stack spacing={1}>
-              <Skeleton variant="rectangular" width={260} height={280} />
-              <Skeleton variant="text" width={260} />
-              <Skeleton variant="text" width={260} />
-            </Stack>
+            <Placeholder />
+            <Placeholder />
+            <Placeholder />
+            <Placeholder />
           </div>
         </div>
       ) : (
