@@ -4,7 +4,11 @@
 #### I develope an online shop for Marvel comics
 ![pagina](https://user-images.githubusercontent.com/90226097/158270284-1ef3020c-647e-418e-96f2-0ee0723ce117.png)
 
+---
+
 - ⚙️ The tools used are: `REACT`, `.css`, `Material UI`, `Firebase`.
+
+---
 
 
 ![Marvel Comics - Google Chrome 2022-03-14 19-20-25](https://user-images.githubusercontent.com/90226097/158271050-f18e1cea-e40c-47d3-9d27-ca094df73e2e.gif)
