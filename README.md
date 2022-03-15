@@ -1,7 +1,7 @@
 ### Hi, 👋 this proyect was made for the React.js course in Coderhouse 
 ---
 
-#### I develope an online shop for Marvel comics
+#### I develope an online shop for Marvel comics:
 ![pagina](https://user-images.githubusercontent.com/90226097/158270284-1ef3020c-647e-418e-96f2-0ee0723ce117.png)
 
 ---
