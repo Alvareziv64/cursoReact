@@ -18,7 +18,3 @@
 - 💼 Connecting and sharing professional updates on <a href="https://www.linkedin.com/in/ivan-alvarez-0ba4231b3/">LinkedIn</a>
 - 🌐 Updating my portfolio with examples of my work on <a href="https://www.behance.net/alvareziv00eb">Behance</a>
 - 📧 My personal email: **alvarez.iv64@gmail.com**
-<<<<<<< HEAD
-=======
-
->>>>>>> 71ca3a0aee049cbb353ef4b94dc39ef75f4cc0be
