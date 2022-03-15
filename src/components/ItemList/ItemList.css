@@ -1,9 +1,9 @@
 
 .gridDiv{
   display: grid;
-  gap: 20px;
+  gap: 1rem;
   grid-auto-rows: auto;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 20rem), 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 17rem), 1fr));
 }
 
 .gridItem{

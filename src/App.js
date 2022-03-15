@@ -9,6 +9,7 @@ import Cart from "./components/Pages/Cart/Cart";
 import Home from "./components/Pages/Home/Home";
 import Section from "./components/Pages/Section/Section";
 import Buy from "./components/Pages/Buy/Buy"
+import ErrorPage from "./components/Pages/ErrorPage/ErroPage";
 //CSS
 import "./App.css"
 
@@ -22,6 +23,7 @@ const App = () => {
           <Routes >
             <Route path="/" element={<Home/>} />
             <Route path="/buy" element={<Buy />} />
+            <Route path="/*" element={<ErrorPage />} />
             <Route path="/section/:filter" element={<Section title="filtro" />} />
             <Route
               path="/item/:id"
